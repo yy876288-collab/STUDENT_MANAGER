@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Task Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <div class="logo">
+                <i class="fa-solid fa-book-open"></i>
+                <h1>Student Task Manager</h1>
+            </div>
+            <button id="theme-toggle" class="icon-button" aria-label="Toggle Dark Mode">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+            </button>
+        </header>
+
+        <div class="dashboard">
+            <div class="stats-card glass">
+                <div class="stats-header">
+                    <h2>Task Progress</h2>
+                    <span id="task-counter">0/0 Completed</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <form id="task-form" class="task-form glass">
+                    <h2>Add New Task</h2>
+                    <div class="form-group">
+                        <label for="title">Task Title</label>
+                        <input type="text" id="title" placeholder="e.g., Complete Math Assignment" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description (Optional)</label>
+                        <textarea id="description" placeholder="Brief details about the task" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="dueDate">Due Date (Optional)</label>
+                        <input type="date" id="dueDate">
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fa-solid fa-plus"></i> Add Task
+                    </button>
+                </form>
+            </aside>
+
+            <main class="task-list-container">
+                <div id="empty-state" class="empty-state">
+                    <!-- Nice generic empty state illustration -->
+                    <svg width="200" height="150" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 20px; opacity: 0.7;">
+                        <circle cx="100" cy="75" r="60" fill="var(--glass-border)"/>
+                        <rect x="75" y="45" width="50" height="60" rx="8" fill="var(--input-bg)" stroke="var(--primary-color)" stroke-width="4"/>
+                        <line x1="85" y1="60" x2="115" y2="60" stroke="var(--primary-color)" stroke-width="4" stroke-linecap="round"/>
+                        <line x1="85" y1="75" x2="105" y2="75" stroke="var(--primary-color)" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M125 95L135 105L150 85" stroke="var(--success-color)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h3>No Tasks Found!</h3>
+                    <p>Add a new task to get started on your student goals.</p>
+                </div>
+                
+                <div id="tasks-grid" class="tasks-grid">
+                    <!-- Task cards injected via JS -->
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
