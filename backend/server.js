@@ -10,6 +10,9 @@ const tasksFilePath = path.join(__dirname, 'tasks.json');
 app.use(cors());
 app.use(express.json());
 
+// Serve the frontend static files
+app.use(express.static(path.join(__dirname, '../frontend')));
+
 // Helper function to read tasks
 const readTasks = () => {
     try {
